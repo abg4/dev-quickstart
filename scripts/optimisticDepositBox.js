@@ -15,17 +15,6 @@
  *
  * This script includes steps to deploy an "ETH/USD" OptimisticDepositBox and use the Optimistic Oracle
  * to withdraw USD-denominated amounts of ETH.
- *
- * How to run:
- * - Run a blockchain instance (i.e. not Kovan/Ropsten/Rinkeby/Mainnet) with `hardhat node --port 9545`.
- * - Initialize the contracts via `HARDHAT_NETWORK=localhost ./src/helpers/Deploy.js`.
- * - The initialization step ensures that the user is the owner of the Finder, IdentifierWhitelist,
- *   Registry, and other important system contracts and can therefore modify their configurations.
- * - Run `HARDHAT_NETWORK=localhost ./scripts/demo/OptimisticDepositBox.js`.
- * Assumptions:
- * - User is sending transactions from accounts[0] of the injected web3.
- * - User is using wETH as the collateral ERC20.
- * - User is referencing the ETH/USD pricefeed identifier.
  */
 
 // Helper modules
@@ -42,7 +31,7 @@ const Timer = getContract("Timer");
 const OptimisticOracle = getContract("OptimisticOracle");
 
 // Constants
-const priceFeedIdentifier = utf8ToHex("ETH/USD");
+const priceFeedIdentifier = utf8ToHex("ETHUSD");
 const liveness = 7200;
 const emptyAncillaryData = "0x";
 
